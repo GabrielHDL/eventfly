@@ -1,5 +1,5 @@
 .container .typed-text {
-    font-weight: normal;
+    @apply font-novaBold;
 }
 .container .cursor-type {
 display: inline-block;

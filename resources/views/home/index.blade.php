@@ -13,7 +13,9 @@
             <div class="grid sm:grid-cols-2 h-full">
                 <div class="flex justify-center items-start flex-col text-white text-7xl">
                     <span class="font-novaBold">Eventos</span>
-                    <span class="typed-text font-novaBold"></span><span class="cursor-type"></span>
+                    <div>
+                        <span class="typed-text"></span><span class="cursor-type">&nbsp;</span>
+                    </div>
                 </div>
                 <div class="flex justify-end items-center">
                     <figure class="h-96 w-auto rounded-2xl overflow-hidden">
