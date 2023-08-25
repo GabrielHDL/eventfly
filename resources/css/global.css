@@ -1,0 +1,18 @@
+.container {
+    @apply max-w-screen-xl mx-auto px-4;
+}
+
+.bg-wall {
+    background: url('/assets/svg/wall_bck.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+::selection {
+    @apply bg-white bg-opacity-80 text-paradisePink;
+  }
+  
+  ::-moz-selection {
+    @apply bg-white bg-opacity-80 text-paradisePink;
+  }
