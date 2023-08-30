@@ -65,6 +65,8 @@
         </main>
     </div>
 
+    <x-footer />
+
     @stack('modals')
 
     @stack('script')
