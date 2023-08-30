@@ -13,7 +13,7 @@
     {{-- Ends Menu --}}
     {{-- Events Grid --}}
     <div class="min-h-screen">
-        <div class="grid grid-cols-4 gap-3 pt-8">
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 pt-8">
             {{-- Events Cards --}}
             @foreach ($events as $event)
             <article class="bg-white shadow-lg rounded-lg">
@@ -25,7 +25,7 @@
                 {{-- Ends Card Image --}}
                 {{-- Card Info --}}
                 <div class="flex flex-col pb-4 px-4">
-                    <h1 class="text-gray-600 font-novaSemiBold text-2xl">{{$event->name}}</h1>
+                    <a href="{{route('events.show', $event)}}" class="text-gray-600 font-novaSemiBold text-2xl">{{$event->name}}</a>
                     <span class="text-paradisePink font-novaSemiBold">{{$event->created_at}}</span>
                     <span class="text-gray-600 mb-2">Expo Santa Fe México, CDMX</span>
                     <span class="text-faluRed">{{$event->speaker}}</span>
