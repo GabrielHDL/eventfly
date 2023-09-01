@@ -4,17 +4,16 @@ namespace App\Http\Livewire;
 
 use App\Models\Event;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class EventsGrid extends Component
 {
-    public $events;
-
-    public function mount() {
-        $this->events = Event::all();
-    }
+    use WithPagination;
 
     public function render()
     {
-        return view('livewire.events-grid');
+        $events = Event::paginate(8);
+
+        return view('livewire.events-grid', compact('events'));
     }
 }

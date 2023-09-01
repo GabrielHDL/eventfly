@@ -11,14 +11,14 @@
     <div class="h-screen bg-wall">
         <div class="container h-full">
             <div class="grid sm:grid-cols-2 h-full">
-                <div class="flex justify-center items-start flex-col text-white text-7xl">
+                <div class="order-2 sm:order-1 flex justify-start sm:justify-center items-start flex-col text-white text-5xl sm:text-7xl">
                     <span class="font-novaBold">Eventos</span>
                     <div>
                         <span class="typed-text"></span><span class="cursor-type">&nbsp;</span>
                     </div>
                 </div>
-                <div class="flex justify-end items-center">
-                    <figure class="h-96 w-auto rounded-2xl overflow-hidden">
+                <div class="mt-10 sm:mt-0 order-1 sm:order-2 flex justify-end items-center">
+                    <figure class="h-80 sm:h-96 w-auto rounded-2xl overflow-hidden">
                         <img class="object-center object-cover h-full w-full"
                             src="{{ asset('assets/img/hero_img.jpg') }}" alt="">
                     </figure>
@@ -28,23 +28,23 @@
     </div>
     {{-- Ends Hero --}}
     <div class="container">
-        <div class="bg-white rounded-xl p-8 shadow-lg grid grid-cols-6 gap-3 relative -top-16">
-            <div class="bg-faluRed h-40 rounded-xl flex justify-center items-center">
+        <div class="bg-white rounded-xl p-8 shadow-lg grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 relative -top-10 sm:-top-16">
+            <div class="bg-faluRed h-40 rounded-xl text-center flex justify-center items-center">
                 <span class="text-white font-novaBold">Tecnología</span>
             </div>
-            <div class="bg-faluRed h-40 rounded-xl flex justify-center items-center">
+            <div class="bg-faluRed h-40 rounded-xl text-center flex justify-center items-center">
                 <span class="text-white font-novaBold">Salud</span>
             </div>
-            <div class="bg-faluRed h-40 rounded-xl flex justify-center items-center">
+            <div class="bg-faluRed h-40 rounded-xl text-center flex justify-center items-center">
                 <span class="text-white font-novaBold">Deportes</span>
             </div>
-            <div class="bg-faluRed h-40 rounded-xl flex justify-center items-center">
+            <div class="bg-faluRed h-40 rounded-xl text-center flex justify-center items-center">
                 <span class="text-white font-novaBold">Desarrollo Personal</span>
             </div>
-            <div class="bg-faluRed h-40 rounded-xl flex justify-center items-center">
+            <div class="bg-faluRed h-40 rounded-xl text-center flex justify-center items-center">
                 <span class="text-white font-novaBold">Aficiones</span>
             </div>
-            <div class="bg-faluRed h-40 rounded-xl flex justify-center items-center">
+            <div class="bg-faluRed h-40 rounded-xl text-center flex justify-center items-center">
                 <span class="text-white font-novaBold">Negocios</span>
             </div>
         </div>

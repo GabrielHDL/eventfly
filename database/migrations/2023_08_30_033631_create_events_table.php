@@ -19,6 +19,8 @@ return new class extends Migration
             $table->integer('followers');
             $table->string('speaker');
             $table->text('content');
+            $table->string('date');
+            $table->string('location');
             $table->text('description');
 
             $table->timestamps();

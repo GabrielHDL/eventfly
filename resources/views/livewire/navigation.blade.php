@@ -1,16 +1,8 @@
-<header class="fixed top-0 left-0 w-full"> 
-    <nav class="container h-20 grid grid-cols-3">
+<header class="fixed top-0 left-0 w-full z-[9999]"> 
+    <nav class="container h-20 flex justify-between items-center">
 
         <div class="flex justify-start items-center">
             <x-logo />
-        </div>
-
-        <div class="flex justify-center items-center">
-            <ul class="flex gap-4 text-white font-semibold text-sm sm:text-base">
-                <li><a href="{{route('home')}}">Inicio</a></li>
-                <li><a href="{{route('events')}}">Eventos</a></li>
-                <li>Tickets</li>
-            </ul>
         </div>
 
         <div class="flex justify-end items-center">

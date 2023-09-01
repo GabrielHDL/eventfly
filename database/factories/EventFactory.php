@@ -22,8 +22,10 @@ class EventFactory extends Factory
         return [
             'name' => $name,
             'slug' => Str::slug($name),
-            'content' => $this->faker->text(800),
+            'content' => $this->faker->text(2000),
             'description' => $this->faker->text(120),
+            'date' => $this->faker->randomElement(['mie 6 sep.', 'lun 2 ago.', 'vie 10 oct.', 'mie 30 feb.']),
+            'location' => $this->faker->randomElement(['South Beach, Miami', 'Navojoa, Sonora', 'Expo Santa Fe México, CDMX', 'Foro Sol, CDMX']),
             'followers' => $this->faker->randomElement([800, 100, 500, 35, 730]),
             'speaker' => $this->faker->randomElement(['Luis Briano', 'Gabriel Sánchez']),
         ];
