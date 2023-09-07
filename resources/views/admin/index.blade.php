@@ -1,1 +1,3 @@
-Hola Admin
+<x-admin-layout>
+    
+</x-admin-layout>

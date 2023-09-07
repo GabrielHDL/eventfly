@@ -1,4 +1,4 @@
-<nav class="bg-white fixed top-0 w-full shadow z-[999]" x-data="{ open: false, mobileOpen: false, notification: false }">
+<nav class="bg-paradisePink fixed top-0 w-full shadow z-[999]" x-data="{ open: false, mobileOpen: false, notification: false }">
     <div class="container">
         <div class="relative flex h-16 items-center justify-between">
             <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -8,32 +8,32 @@
                     <span class="absolute -inset-0.5"></span>
                     <span class="sr-only">Open main menu</span>
                     <svg :class="mobileOpen ? 'hidden' : 'block h-6 w-6'" fill="none" viewBox="0 0 24 24"
-                        stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                        stroke-width="1.5" class="stroke-white" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                     </svg>
                     <svg :class="mobileOpen ? 'block h-6 w-6' : 'hidden'" fill="none" viewBox="0 0 24 24"
-                        stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                        stroke-width="1.5" class="stroke-white" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
             </div>
             <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div class="flex flex-shrink-0 items-center">
-                    <a href="/"><img class="h-8 w-auto" src="{{ asset('assets/logos/logo_color.svg') }}"
-                            alt="Eventfly"></a>
+                    <x-logo size="h-8" link="{{ route('admin.home') }}" /><a class="ml-1 text-white font-novaSemiBold text-xs" href="{{route('admin.home')}}"><span class="font-novaBold">|</span> Admin</a>
                 </div>
+                {{-- Desktop Menu --}}
                 <div class="hidden sm:ml-6 sm:block">
                     <div class="flex space-x-4">
                       @foreach ($navigation as $item)
-                        <a href="{{ $item['url'] }}" class="{{ $item['active'] ? 'bg-faluRed text-coolGray rounded-md px-3 py-2 text-sm font-medium' : 'text-gray-600 hover:bg-paradisePink hover:text-white rounded-md px-3 py-2 text-sm font-medium' }}">{{ __($item['title']) }}</a>
+                        <a href="{{ $item['url'] }}" class="{{ $item['active'] ? 'bg-white text-faluRed rounded-md px-3 py-2 text-sm font-medium' : 'text-white hover:bg-white hover:text-faluRed rounded-md px-3 py-2 text-sm font-medium' }}">{{ __($item['title']) }}</a>
                       @endforeach
                     </div>
                 </div>
             </div>
             <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <button x-on:click="notification = ! notification" type="button"
-                    class="relative rounded-full bg-faluRed p-1 text-gray-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-faluRed">
+                    class="relative rounded-full bg-white p-1 text-faluRed hover:text-paradisePink focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-faluRed">
                     <span class="absolute -inset-1.5"></span>
                     <span class="sr-only">View notifications</span>
                     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -89,9 +89,10 @@
     </div>
     
     <div class="hidden sm:hidden" :class="{ 'hidden': !mobileOpen }" id="mobile-menu" x-show="mobileOpen">
+        {{-- Mobile Menu --}}
         <div class="space-y-1 px-2 pb-3 pt-2">
           @foreach ($navigation as $item)
-            <a href="{{$item['url']}}" class="{{$item['active'] ? 'bg-faluRed text-white block rounded-md px-3 py-2 text-base font-medium' : 'text-gray-600 hover:bg-paradisePink hover:text-white block rounded-md px-3 py-2 text-base font-medium'}}" aria-current="page">{{__($item['title'])}}</a>
+            <a href="{{$item['url']}}" class="{{$item['active'] ? 'bg-white text-faluRed block rounded-md px-3 py-2 text-base font-medium' : 'text-white hover:bg-white hover:text-faluRed block rounded-md px-3 py-2 text-base font-medium'}}" aria-current="page">{{__($item['title'])}}</a>
           @endforeach
         </div>
     </div>

@@ -8,6 +8,14 @@ class Navigation extends Component
 {
     public function render()
     {
-        return view('livewire.navigation');
+        $navigation = [
+            [
+              'title' => 'Home',
+              'url' => route('home'),
+              'active' => request()->routeIs('home')
+            ],
+        ];
+
+        return view('livewire.navigation', compact('navigation'));
     }
 }
