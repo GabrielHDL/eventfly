@@ -20,7 +20,7 @@
             </div>
             <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div class="flex flex-shrink-0 items-center">
-                    <x-logo size="h-8" link="{{ route('admin.home') }}" /><a class="ml-1 text-white font-novaSemiBold text-xs" href="{{route('admin.home')}}"><span class="font-novaBold">|</span> Admin</a>
+                    <x-logo size="h-8" link="{{ route('admin.home') }}" /><a class="pl-1 text-white font-novaSemiBold text-xs" href="{{route('admin.home')}}"><span class="font-novaBold">|</span> Admin</a>
                 </div>
                 {{-- Desktop Menu --}}
                 <div class="hidden sm:ml-6 sm:block">
