@@ -23,6 +23,7 @@
                     <a href="/"><img class="h-8 w-auto" src="{{ asset('assets/logos/logo_color.svg') }}"
                             alt="Eventfly"></a>
                 </div>
+                {{-- Desktop Nav --}}
                 <div class="hidden sm:ml-6 sm:block">
                     <div class="flex space-x-4">
                       @foreach ($navigation as $item)
@@ -65,12 +66,15 @@
                             @endauth
                         </button>
                     </div>
-
+                    {{-- Profile Menu --}}
                     <div :class="{ 'hidden': !open }"
                         class="hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                         x-show="open" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
                         tabindex="-1">
                         @auth
+                            @role('admin')
+                                <a href="{{ route('admin.home') }}" class="block px-4 py-2 text-sm text-paradisePink {{ request()->routeIs('admin.home') ? 'bg-gray-100' : '' }}" role="menuitem" tabindex="-1" id="user-menu-item-0">{{__('Admin Dashboard')}}</a>
+                            @endrole
                             <a href="{{ route('profile.show') }}" class="block px-4 py-2 text-sm text-paradisePink {{ request()->routeIs('profile.show') ? 'bg-gray-100' : '' }}" role="menuitem" tabindex="-1" id="user-menu-item-0">{{__('Your Profile')}}</a>
                             <form method="POST" action="{{ route('logout') }}" x-data>
                                 @csrf
@@ -87,7 +91,7 @@
             </div>
         </div>
     </div>
-    
+    {{-- Mobile Nav --}}
     <div class="hidden sm:hidden" :class="{ 'hidden': !mobileOpen }" id="mobile-menu" x-show="mobileOpen">
         <div class="space-y-1 px-2 pb-3 pt-2">
           @foreach ($navigation as $item)

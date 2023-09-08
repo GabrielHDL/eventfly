@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         Storage::deleteDirectory('events');
         Storage::makeDirectory('events');
 
+        $this->call(UserSeeder::class);
         $this->call(EventSeeder::class);
 
         // \App\Models\User::factory(10)->create();

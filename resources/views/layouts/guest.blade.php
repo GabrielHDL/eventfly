@@ -14,6 +14,34 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
+    <style>
+        @font-face {
+            font-family: 'novabold';
+            src: url('/assets/fonts/metropolis-bold-webfont.woff2') format('woff2'),
+                url('/assets/fonts/metropolis-bold-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+    
+        }
+    
+        @font-face {
+            font-family: 'novaregular';
+            src: url('/assets/fonts/metropolis-regular-webfont.woff2') format('woff2'),
+                url('/assets/fonts/metropolis-regular-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+    
+        }
+    
+        @font-face {
+            font-family: 'novasemibold';
+            src: url('/assets/fonts/metropolis-semibold-webfont.woff2') format('woff2'),
+                url('/assets/fonts/metropolis-semibold-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+    
+        }
+    </style>
     <body>
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
