@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('content');
             $table->string('date');
             $table->string('location');
+            $table->float('price');
             $table->text('description');
 
             $table->timestamps();

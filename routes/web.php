@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,4 +21,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/events', [EventsController::class, 'index'])->name('events.index');
 
 Route::get('/events/{event}', [EventsController::class, 'show'])->name('events.show');
+
+Route::middleware(['auth'])->group(function() {
+    Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+});
 

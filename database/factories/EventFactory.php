@@ -27,6 +27,7 @@ class EventFactory extends Factory
             'date' => $this->faker->randomElement(['mie 6 sep.', 'lun 2 ago.', 'vie 10 oct.', 'mie 30 feb.']),
             'location' => $this->faker->randomElement(['South Beach, Miami', 'Navojoa, Sonora', 'Expo Santa Fe México, CDMX', 'Foro Sol, CDMX']),
             'followers' => $this->faker->randomElement([800, 100, 500, 35, 730]),
+            'price' => $this->faker->randomElement([19.99, 24.33, 15.99, 18.45]),
             'speaker' => $this->faker->randomElement(['Luis Briano', 'Gabriel Sánchez']),
         ];
     }
