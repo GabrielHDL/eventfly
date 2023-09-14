@@ -76,6 +76,7 @@
                                 <a href="{{ route('admin.home') }}" class="block px-4 py-2 text-sm text-paradisePink {{ request()->routeIs('admin.home') ? 'bg-gray-100' : '' }}" role="menuitem" tabindex="-1" id="user-menu-item-0">{{__('Admin Dashboard')}}</a>
                             @endrole
                             <a href="{{ route('profile.show') }}" class="block px-4 py-2 text-sm text-paradisePink {{ request()->routeIs('profile.show') ? 'bg-gray-100' : '' }}" role="menuitem" tabindex="-1" id="user-menu-item-0">{{__('Your Profile')}}</a>
+                            <a href="{{ route('billings.index') }}" class="block px-4 py-2 text-sm text-paradisePink {{ request()->routeIs('billings.index') ? 'bg-gray-100' : '' }}" role="menuitem" tabindex="-1" id="user-menu-item-0">{{__('Billing')}}</a>
                             <form method="POST" action="{{ route('logout') }}" x-data>
                                 @csrf
                                 <a href="{{ route('logout') }}" @click.prevent="$root.submit();" class="block px-4 py-2 text-sm text-paradisePink" role="menuitem" tabindex="-1" id="user-menu-item-2">{{__('Sign out')}}</a>

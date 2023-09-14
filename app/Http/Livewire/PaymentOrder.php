@@ -29,7 +29,7 @@ class PaymentOrder extends Component
 
         try {
             auth()->user()->charge($this->order->total * 100, $this->paymentMethodId);
-            $this->order->status = 2;
+            $this->order->status = Order::PAID;
             $this->order->save();
 
             $this->sendConfirmationMail($this->order);

@@ -27,12 +27,9 @@
                             <span class="text-paradisePink font-novaBold text-xl">${{$event->price}}</span>
                         </div>
                         <div class="flex flex-col">
-                            <button class="mb-2 inline-flex bg-faluRed transition-all ease-linear w-full py-3 rounded-md text-white justify-center items-center font-novaSemiBold hover:bg-faluRed/70">
-                                Add to Cart
-                            </button>
-                            <button class="inline-flex bg-paradisePink transition-all ease-linear w-full py-3 rounded-md text-white justify-center items-center font-novaSemiBold hover:bg-paradisePink/70">
-                                Buy now
-                            </button>
+                            @livewire('add-cart-item', ['event' => $event])
+
+                            @livewire('buy-now', ['event' => $event])
                         </div>
                     </div>
                 </div>
