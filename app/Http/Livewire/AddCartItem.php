@@ -28,7 +28,7 @@ class AddCartItem extends Component
                     'options' => $this->options
                 ]);
 
-        // $this->emitTo('dropdown-cart', 'render');
+        $this->emitTo('dropdown-cart', 'render');
     }
 
     public function render()

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('date');
             $table->string('location');
             $table->float('price');
+            $table->integer('quantity')->nullable();
             $table->text('description');
 
             $table->timestamps();

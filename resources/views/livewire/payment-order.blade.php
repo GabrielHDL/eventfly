@@ -112,7 +112,7 @@
                                 <li class="flex gap-4 items-center h-full py-2 w-full">
                                     <label class="flex h-full w-full items-center gap-3" for="">
                                         <input wire:model="paymentMethodId"
-                                            class="text-goldenrod focus:boder-deer focus:ring-deer" type="radio"
+                                            class="text-paradisePink focus:boder-faluRed focus:ring-faluRed" type="radio"
                                             name="paymentMethod" value="{{ $paymentMethod->id }}">
                                         <div class="flex w-full justify-between items-center">
                                             <div class="flex gap-2 items-center">
