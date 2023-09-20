@@ -38,19 +38,21 @@
 
                 <div class="relative ml-3">
                     <div>
-                        <button x-on:click="open = ! open" @click.away="open = false" @close.stop="open = false" type="button"
+                            @auth
+                            <button x-on:click="open = ! open" @click.away="open = false" @close.stop="open = false" type="button"
                             class="relative flex rounded-full bg-faluRed text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-faluRed"
                             id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                            <span class="absolute -inset-1.5"></span>
-                            <span class="sr-only">Open user menu</span>
-                            @auth
-                                <img class="h-8 w-8 rounded-full object-cover object-center"
-                                    src="{{ auth()->user()->profile_photo_url }}" alt="">
+                                <span class="absolute -inset-1.5"></span>
+                                <span class="sr-only">Open user menu</span>
+                                <img class="h-8 w-8 rounded-full object-cover object-center" src="{{ auth()->user()->profile_photo_url }}" alt="">
+                            </button>
                             @else
-                                <img class="h-8 w-8 rounded-full object-cover object-center"
-                                    src="{{ asset('assets/img/profile_img.jpeg') }}" alt="">
+                            <button x-on:click="open = ! open" @click.away="open = false" @close.stop="open = false" type="button"
+                            class="relative flex rounded-full bg-faluRed h-8 w-8 justify-center items-center text-gray-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-faluRed"
+                            id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                                <i class="fa-solid fa-user-astronaut"></i>
+                            </button>
                             @endauth
-                        </button>
                     </div>
                     {{-- Profile Menu --}}
                     <div :class="{ 'hidden': !open }"

@@ -2,6 +2,8 @@
 
 namespace App\Console;
 
+use App\Models\Order;
+use App\Models\User;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -12,7 +14,29 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->call(function () {
+
+            $hour = now()->subMinute(10);
+
+            $orders = Order::where('status', 1)->whereTime('created_at', '<=', $hour)->get();
+
+            foreach ($orders as $order) {
+
+                $items = json_decode($order->content);
+
+                foreach ($items as $item) {
+                    increase($item);
+                }
+
+                $order->status = 3;
+
+                $order->save();
+
+                $user = User::find($order->user_id);
+                // Mail::to($user->email)->send(new TimeOutOrderMailable($order));
+            }
+
+        })->everyMinute();
     }
 
     /**

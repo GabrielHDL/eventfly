@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Event;
 use App\Models\Order;
 use App\Models\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -32,9 +33,16 @@ class PaymentOrder extends Component
             $this->order->status = Order::PAID;
             $this->order->save();
 
-            $this->sendConfirmationMail($this->order);
+            foreach (json_decode($this->order->content) as $item) {
+                $event = Event::where('id', $item->id)->first();
+                $event->attendees = $event->attendees + $item->qty;
 
-            $this->sendNotificationMail($this->order);
+                $event->save();
+            }
+
+            // $this->sendConfirmationMail($this->order);
+
+            // $this->sendNotificationMail($this->order);
 
             return redirect()->route('orders.show', $this->order);
 

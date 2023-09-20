@@ -15,6 +15,13 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <style>
+        .bg-wall {
+            background: url('/assets/svg/wall_bck.svg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
         @font-face {
             font-family: 'novabold';
             src: url('/assets/fonts/metropolis-bold-webfont.woff2') format('woff2'),

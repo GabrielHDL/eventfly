@@ -11,6 +11,10 @@ class PaymentMethod extends Component
     }
 
     public function addPaymentMethod($paymentMethod) {
+
+        if (!auth()->user()->hasStripeId()) {
+            auth()->user()->createAsStripeCustomer();
+        }
         
         auth()->user()->addPaymentMethod($paymentMethod);
 

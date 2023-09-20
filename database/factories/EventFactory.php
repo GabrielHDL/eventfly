@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Event;
+use App\Models\Subcategory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -19,6 +21,8 @@ class EventFactory extends Factory
     {
         $name = $this->faker->sentence(2);
 
+        $subcategory = Subcategory::all()->random();
+
         return [
             'name' => $name,
             'slug' => Str::slug($name),
@@ -26,9 +30,12 @@ class EventFactory extends Factory
             'description' => $this->faker->text(120),
             'date' => $this->faker->randomElement(['mie 6 sep.', 'lun 2 ago.', 'vie 10 oct.', 'mie 30 feb.']),
             'location' => $this->faker->randomElement(['South Beach, Miami', 'Navojoa, Sonora', 'Expo Santa Fe México, CDMX', 'Foro Sol, CDMX']),
-            'followers' => $this->faker->randomElement([800, 100, 500, 35, 730]),
+            'attendees' => $this->faker->randomElement([800, 100, 500, 35, 730]),
             'price' => $this->faker->randomElement([19.99, 24.33, 15.99, 18.45]),
+            'quantity' => 15,
+            'subcategory_id' => $subcategory->id,
             'speaker' => $this->faker->randomElement(['Luis Briano', 'Gabriel Sánchez']),
+            'status' => $this->faker->randomElement([Event::PUBLISHED, Event::DRAFT])
         ];
     }
 }

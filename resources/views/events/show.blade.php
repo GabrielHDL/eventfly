@@ -22,14 +22,12 @@
                     <div class="bg-white rounded-md shadow-md p-4 flex flex-col">
                         <span class="text-gray-800 font-novaBold text-lg">{{$event->name}}</span>
                         <span class="text-paradisePink font-novaSemiBold">{{$event->date}}</span>
-                        <span class="text-gray-500">Followers: <span class="font-novaSemiBold">{{$event->followers}}</span></span>
+                        <span class="text-gray-500">Attendees: <span class="font-novaSemiBold">{{$event->attendees}}</span></span>
                         <div class="flex justify-end my-3">
                             <span class="text-paradisePink font-novaBold text-xl">${{$event->price}}</span>
                         </div>
-                        <div class="flex flex-col">
+                        <div>
                             @livewire('add-cart-item', ['event' => $event])
-
-                            @livewire('buy-now', ['event' => $event])
                         </div>
                     </div>
                 </div>

@@ -10,9 +10,13 @@
                     <i class="fa-regular fa-circle-xmark text-xl text-white"></i>
                 </div>
                 <p class="mt-2">Canceled</p>
-            @else
-                <div
-                    class="{{ $order->status >= 2 && $order->status != 3 ? 'bg-paradisePink' : 'bg-gray-400' }}  rounded-full h-12 w-12 flex items-center justify-center">
+            @elseif($order->status == 1)
+                <div class="bg-gray-400 rounded-full h-12 w-12 flex items-center justify-center">
+                    <i class="fa-solid fa-clock text-white"></i>
+                </div>
+                <p class="mt-2">Pending</p>
+            @elseif($order->status == 2)
+                <div class="bg-paradisePink rounded-full h-12 w-12 flex items-center justify-center">
                     <i class="fas fa-check text-white"></i>
                 </div>
                 <p class="mt-2">Paid</p>
@@ -28,7 +32,7 @@
                 Order-{{ $order->id }}</p>
 
             @if ($order->status == 1)
-                <a class="ml-auto text-white bg-goldenrod hover:bg-deer px-4 py-1 btn rounded-none border-none"
+                <a class="ml-auto inline-flex items-center px-4 py-2 bg-faluRed border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-paradisePink focus:bg-paradisePink active:bg-faluRed focus:outline-none focus:ring-2 focus:ring-paradisePink focus:ring-offset-2 transition ease-in-out duration-150"
                     href="{{ route('orders.payment', $order) }}">
                     Go to pay
                 </a>

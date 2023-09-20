@@ -4,7 +4,6 @@ use App\Http\Controllers\BillingController;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
-use App\Http\Livewire\CreateOrder;
 use App\Http\Livewire\PaymentOrder;
 use App\Http\Livewire\ShoppingCart;
 use Illuminate\Support\Facades\Route;
@@ -26,9 +25,8 @@ Route::get('/events', [EventsController::class, 'index'])->name('events.index');
 
 Route::get('/events/{event}', [EventsController::class, 'show'])->name('events.show');
 
-Route::get('/cart', ShoppingCart::class)->name('shopping-cart');
-
 Route::middleware(['auth'])->group(function() {
+    Route::get('/cart', ShoppingCart::class)->name('shopping-cart');
     Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
     Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
     Route::get('/orders/{order}/payment', PaymentOrder::class)->name('orders.payment');

@@ -30,6 +30,10 @@ class ShoppingCart extends Component
 
         $order->save(); //Order guarda la información.
 
+        foreach (Cart::content() as $item) {
+            discount($item);
+        }
+
         Cart::destroy(); //Carrito destruye tu contenido.
 
         return redirect()->route('orders.payment', $order); //redirigeme a la ruta "orders.payment.

@@ -27,7 +27,7 @@
                 <p class="text-center text-2xl">
                     {{$nulled}}
                 </p>
-                <p class="uppercase text-center">Nulled</p>
+                <p class="uppercase text-center">Canceled</p>
                 <p class="text-center text-2xl mt-2">
                     <i class="fas fa-times-circle"></i>
                 </p>
@@ -38,15 +38,15 @@
             
         
             <section class="bg-rifleGreen shadow pb-8 mt-12 text-platinum">
-                <div class="px-12 bg-slate-900/20 h-full w-full pt-8 pb-2 border-b border-deer">
-                    <h1 class="text-2xl mb-4 font-saol font-bold">Recent Orders</h1>
+                <div class="px-12 bg-faluRed h-full w-full pt-8 pb-2 border-b border-deer">
+                    <h1 class="text-2xl mb-4 text-white font-novaBold">Recent Orders</h1>
                 </div>
 
-                <div class="px-12 pt-4">
+                <div class="px-4 pt-4">
                     <ul>
                         @foreach ($orders as $order)
                             <li>
-                                <a href="{{route('orders.show', $order)}}" class="flex items-center py-2 px-4 hover:bg-slate-900/30">
+                                <a href="{{route('orders.show', $order)}}" class="flex items-center py-2 px-4 hover:bg-paradisePink hover:text-white">
                                     <span class="w-12 text-center">
                                         @switch($order->status)
                                             @case(1)
@@ -56,12 +56,6 @@
                                                 <i class="fas fa-credit-card"></i>
                                                 @break
                                             @case(3)
-                                                <i class="fas fa-truck"></i>
-                                                @break
-                                            @case(4)
-                                                <i class="fas fa-check-circle"></i>
-                                                @break
-                                            @case(5)
                                                 <i class="fas fa-times-circle"></i>
                                                 @break
                                             @default
@@ -86,22 +80,12 @@
                                                     @break
                                                 @case(2)
                                                     
-                                                    Placed
+                                                    Paid
     
                                                     @break
                                                 @case(3)
                                                     
-                                                    Shipped
-    
-                                                    @break
-                                                @case(4)
-                                                    
-                                                    Delivered
-    
-                                                    @break
-                                                @case(5)
-                                                    
-                                                    Nulled
+                                                    Canceled
     
                                                     @break
                                                 @default

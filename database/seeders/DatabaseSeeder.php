@@ -13,17 +13,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        Storage::deleteDirectory('categories');
         Storage::deleteDirectory('events');
+        Storage::makeDirectory('categories');
         Storage::makeDirectory('events');
 
         $this->call(UserSeeder::class);
+        $this->call(CategorySeeder::class);
+        // $this->call(TicketSeeder::class);
+        $this->call(SubcategorySeeder::class);
         $this->call(EventSeeder::class);
-
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $this->call(TicketSeeder::class);
     }
 }

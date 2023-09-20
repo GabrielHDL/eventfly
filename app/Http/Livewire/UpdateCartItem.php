@@ -7,11 +7,13 @@ use Livewire\Component;
 
 class UpdateCartItem extends Component
 {
-    public $rowId, $qty;
+    public $rowId, $qty, $quantity;
 
     public function mount(){
         $item = Cart::get($this->rowId);
         $this->qty = $item->qty;
+
+        $this->quantity = qty_available($item->id);
     }
 
     public function decrement(){
