@@ -1,4 +1,7 @@
 <div>
+    @php
+        use Carbon\Carbon;
+    @endphp
     {{-- Menu --}}
     <div class="font-novaSemiBold text-gray-600">
         <ul class="flex gap-6 mb-6">
@@ -14,6 +17,11 @@
                     </a>
                 </li>
             @endforeach
+            <li class="py-2 text-sm">
+                <a class="cursor-pointer hover:text-goldenrod capitalize {{ $categorySlug === 'hoy' ? 'text-faluRed font-novaBold underline-offset-[10px] decoration-4 underline decoration-paradisePink' : 'hover:text-paradisePink' }}"
+                    wire:click="$set('categorySlug', 'hoy')">{{ __('Hoy') }}
+                </a>
+            </li>
         </ul>
     </div>
     {{-- Ends Menu --}}
@@ -35,7 +43,7 @@
                     <div class="flex flex-col pb-4 px-4">
                         <a href="{{ route('events.show', $event) }}"
                             class="text-gray-600 font-novaSemiBold text-2xl">{{ $event->name }}</a>
-                        <span class="text-paradisePink font-novaSemiBold">{{ $event->date }}</span>
+                        <span class="text-paradisePink font-novaSemiBold">{{Carbon::parse($event->date)->diffForHumans()}}</span>
                         <span class="text-gray-600 mb-2">{{ $event->location }}</span>
                         <span class="text-faluRed">{{ $event->speaker }}</span>
                         <div class="grid grid-cols-2 gap-2 mt-2">

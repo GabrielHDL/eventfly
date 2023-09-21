@@ -28,7 +28,7 @@ class EventFactory extends Factory
             'slug' => Str::slug($name),
             'content' => $this->faker->text(2000),
             'description' => $this->faker->text(120),
-            'date' => $this->faker->randomElement(['mie 6 sep.', 'lun 2 ago.', 'vie 10 oct.', 'mie 30 feb.']),
+            'date' => $this->faker->randomElement(['20-09-2023', '27-09-2023', '02-10-2023', '13-12-2023']),
             'location' => $this->faker->randomElement(['South Beach, Miami', 'Navojoa, Sonora', 'Expo Santa Fe México, CDMX', 'Foro Sol, CDMX']),
             'attendees' => $this->faker->randomElement([800, 100, 500, 35, 730]),
             'price' => $this->faker->randomElement([19.99, 24.33, 15.99, 18.45]),
