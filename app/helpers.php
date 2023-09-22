@@ -7,7 +7,6 @@ function quantity($event_id){
     $event = Event::find($event_id);
 
     $quantity = $event->quantity;
-    
 
     return $quantity;
 }

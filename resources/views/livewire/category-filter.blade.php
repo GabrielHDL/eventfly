@@ -2,34 +2,10 @@
     @php
         use Carbon\Carbon;
     @endphp
-    {{-- Menu --}}
-    <div class="font-novaSemiBold text-gray-600">
-        <ul class="flex gap-6 mb-6">
-            <li class="py-2 text-sm">
-                <a class="cursor-pointer hover:text-goldenrod capitalize {{ $categorySlug === 'all' ? 'text-faluRed font-novaBold underline-offset-[10px] decoration-4 underline decoration-paradisePink' : 'hover:text-paradisePink' }}"
-                    wire:click="$set('categorySlug', 'all')">{{ __('All') }}
-                </a>
-            </li>
-            @foreach ($categories as $category)
-                <li class="py-2 text-sm">
-                    <a class="cursor-pointer hover:text-goldenrod capitalize {{ $categorySlug === $category->slug ? 'text-faluRed font-novaBold underline-offset-[10px] decoration-4 underline decoration-paradisePink' : 'hover:text-paradisePink' }}"
-                        wire:click="$set('categorySlug', '{{ $category->slug }}')">{{ $category->name }}
-                    </a>
-                </li>
-            @endforeach
-            <li class="py-2 text-sm">
-                <a class="cursor-pointer hover:text-goldenrod capitalize {{ $categorySlug === 'hoy' ? 'text-faluRed font-novaBold underline-offset-[10px] decoration-4 underline decoration-paradisePink' : 'hover:text-paradisePink' }}"
-                    wire:click="$set('categorySlug', 'hoy')">{{ __('Hoy') }}
-                </a>
-            </li>
-        </ul>
-    </div>
-    {{-- Ends Menu --}}
-    {{-- Events Grid --}}
     <div class="min-h-screen">
         <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {{-- Events Cards --}}
-            @forelse ($events as $event)
+            @foreach ($events as $event)
                 <article class="bg-white shadow-lg rounded-lg">
                     {{-- Card Image --}}
                     <figure class="h-40 w-auto rounded-t-lg overflow-hidden mb-4">
@@ -62,11 +38,7 @@
                     </div>
                     {{-- Ends Card Info --}}
                 </article>
-            @empty
-                <div class="col-span-5 w-full flex justify-center h-80 items-center bg-white rounded-md shadow-lg">
-                    <p class="text-paradisePink text-2xl font-novaBold">{{__('Nothing here yet...')}}</p>
-                </div>
-            @endforelse
+            @endforeach
             {{-- Ends Events Cards --}}
         </div>
         <div class="py-6">

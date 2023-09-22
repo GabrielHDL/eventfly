@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BillingController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
@@ -24,6 +25,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/events', [EventsController::class, 'index'])->name('events.index');
 
 Route::get('/events/{event}', [EventsController::class, 'show'])->name('events.show');
+
+Route::get('/events/category/{category}', [CategoryController::class, 'show'])->name('categories.show');
 
 Route::middleware(['auth'])->group(function() {
     Route::get('/cart', ShoppingCart::class)->name('shopping-cart');

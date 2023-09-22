@@ -30,14 +30,14 @@
     <div class="container">
         <div class="bg-white rounded-xl p-8 shadow-lg grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 relative -top-10 sm:-top-16">
             @foreach ($categories as $category)
-            <div class="bg-faluRed h-40 rounded-xl text-center flex justify-center items-center relative overflow-hidden">
+            <a href="{{route('categories.show', $category)}}" class="bg-faluRed h-40 rounded-xl text-center flex justify-center items-center relative overflow-hidden">
                 <div class="h-full w-full">
                     <img class="h-full w-full object-center object-cover" src="{{Storage::url($category->image)}}" alt="">
                 </div>
                 <div class="absolute top-0 left-0 h-full w-full bg-black/30 flex justify-center items-center">
                     <span class="text-white text-lg font-novaBold">{{$category->name}}</span>
                 </div>
-            </div>  
+            </a>
             @endforeach
         </div>
     </div>
