@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -31,6 +32,8 @@ class OrderController extends Controller
 
         $items = json_decode($order->content);
 
-        return view('orders.show', compact('order', 'items'));
+        $tickets = Ticket::where('user_id', auth()->user()->id)->where('order_id', $order->id)->get();
+
+        return view('orders.show', compact('order', 'items', 'tickets'));
     }
 }
