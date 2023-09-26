@@ -1,4 +1,9 @@
 <x-app-layout>
+    @if (!$ticket)
+        <div class="pt-20">
+            {{__('This is not your ticket')}}
+        </div>
+    @else
     <div class="container flex justify-center items-center">
         <div class="pt-20 max-w-md w-full">
             <div class="flex flex-col">
@@ -52,4 +57,5 @@
             </div>
         </div>
     </div>
+    @endif
 </x-app-layout>

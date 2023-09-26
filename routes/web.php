@@ -29,13 +29,12 @@ Route::get('/events/{event}', [EventsController::class, 'show'])->name('events.s
 
 Route::get('/events/category/{category}', [CategoryController::class, 'show'])->name('categories.show');
 
-Route::get('/ticket/{ticket}', [TicketController::class, 'show'])->name('tickets.show');
-
 Route::middleware(['auth'])->group(function() {
     Route::get('/cart', ShoppingCart::class)->name('shopping-cart');
     Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
     Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
     Route::get('/orders/{order}/payment', PaymentOrder::class)->name('orders.payment');
     Route::get('/billing', [BillingController::class, 'index'])->name('billings.index');
+    Route::get('/ticket/{ticket}', [TicketController::class, 'show'])->name('tickets.show');
 });
 

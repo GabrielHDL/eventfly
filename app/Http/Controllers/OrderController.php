@@ -28,7 +28,7 @@ class OrderController extends Controller
 
     public function show(Order $order){
 
-        // $this->authorize('author', $order);
+        $this->authorize('author', $order);
 
         $items = json_decode($order->content);
 

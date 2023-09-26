@@ -99,8 +99,8 @@ class PaymentOrder extends Component
     public function render()
     {
 
-        // $this->authorize('author', $this->order);
-        // $this->authorize('payment', $this->order);
+        $this->authorize('author', $this->order);
+        $this->authorize('payment', $this->order);
 
         $items = json_decode($this->order->content);
 
