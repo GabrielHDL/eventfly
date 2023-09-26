@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Order;
+use App\Models\Ticket;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -118,8 +119,6 @@ class AddCartItem extends Component
             discount($item);
         }
 
-        Cart::destroy();
-
         $this->emitTo('dropdown-cart', 'render');
 
         try {
@@ -130,6 +129,19 @@ class AddCartItem extends Component
             $this->event->attendees = $this->event->attendees + $this->qty;
 
             $this->event->save();
+
+            foreach (range(1, Cart::count()) as $item) {
+                Ticket::create([
+                    'user_id' => auth()->user()->id,
+                    'order_id' => $order->id,
+                    'event_name' => $this->event->name,
+                    'event_date' => $this->event->date,
+                    'event_description' => $this->event->description,
+                    'event_price' => $this->event->price,
+                ]);
+            }
+
+            Cart::destroy();
 
             $this->reset('qty');
 

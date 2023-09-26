@@ -4,7 +4,9 @@ namespace App\Http\Livewire;
 
 use App\Models\Event;
 use App\Models\Order;
+use App\Models\Ticket;
 use App\Models\User;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
 
@@ -12,6 +14,7 @@ class PaymentOrder extends Component
 {
     use AuthorizesRequests;
     public $order;
+
     public $paymentMethodId;
 
     public function getDefaultPaymentMethodProperty() {
@@ -38,6 +41,17 @@ class PaymentOrder extends Component
                 $event->attendees = $event->attendees + $item->qty;
 
                 $event->save();
+
+                foreach (range(1, $item->qty) as $key) {
+                    Ticket::create([
+                        'user_id' => auth()->user()->id,
+                        'order_id' => $this->order->id,
+                        'event_name' => $event->name,
+                        'event_date' => $event->date,
+                        'event_description' => $event->description,
+                        'event_price' => $event->price,
+                    ]);
+                }
             }
 
             // $this->sendConfirmationMail($this->order);

@@ -13,8 +13,12 @@ class Ticket extends Model
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
-    public function users() {
-        return $this->belongsToMany(User::class);
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function order(){
+        return $this->belongsTo(Order::class);
     }
 
 }

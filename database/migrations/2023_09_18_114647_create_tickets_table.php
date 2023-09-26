@@ -14,9 +14,13 @@ return new class extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->uuid('id')->primary();
 
+            $table->foreignId('user_id')->index()->constrained()->onDelete('cascade');
+            $table->foreignId('order_id')->index()->constrained()->onDelete('cascade');
             $table->string('event_name');
             $table->string('event_date');
             $table->string('event_description');
+            $table->string('event_price');
+            $table->boolean('isActive')->default(false);
 
             $table->timestamps();
         });
